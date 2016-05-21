@@ -2,7 +2,6 @@ require_dependency "api_flashcards/application_controller"
 
 module ApiFlashcards
   class Api::V1::CardsController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
     def index
       render json: card_user.cards.all
@@ -21,7 +20,7 @@ module ApiFlashcards
       else
         render json: { errors: card.errors }, status: 422
       end
-  end
+    end
 
   private
 
